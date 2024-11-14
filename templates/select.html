@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Match Prediction - Team Selection</title>
+  <link rel="stylesheet" href="stylesSelect.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="selectPage" class="page" style="padding:0;">
+    <div class="animated-background">
+      <h2>Team Selection for Next Matches</h2>
+
+      <div class="flexbox1">
+        <div>Team 1</div>
+        <div>Team 2</div>
+      </div>
+
+      <div class="flexbox">
+        <!-- Carousel for Team 1 -->
+        <div class="carousel-container">
+          <div id="carousel1" class="carousel">
+            <div class="carousel-inner">
+              <img id="carousel1Image" src="images/team.jpg" alt="Team Image">
+              <div id="carousel1Caption" class="carousel-caption">
+                <h3>Team 1</h3>
+                <p>Select a team to view</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown for Team 1 -->
+          <div class="dropdown1">
+            <select id="team1Dropdown" onchange="updateCarouselImage('team1Dropdown', 'carousel1Image', 'carousel1Caption')">
+              <option value="Arsenal" data-image="images/team.jpg">Arsenal</option>
+              <option value="Aston Villa" data-image="images/team2.jpg">Aston Villa</option>
+              <option value="Bournemouth" data-image="images/team.jpg">Bournemouth</option>
+              <option value="Brighton & Hove Albion" data-image="images/team.jpg">Brighton & Hove Albion</option>
+              <option value="Burnley" data-image="images/team.jpg">Burnley</option>
+              <option value="Chelsea" data-image="images/team.jpg">Chelsea</option>
+              <option value="Crystal Palace" data-image="images/team.jpg">Crystal Palace</option>
+              <option value="Everton" data-image="images/team.jpg">Everton</option>
+              <option value="Leicester City" data-image="images/team.jpg">Leicester City</option>
+              <option value="Liverpool" data-image="images/team.jpg">Liverpool</option>
+              <option value="Manchester City" data-image="images/team.jpg">Manchester City</option>
+              <option value="Manchester United" data-image="images/team.jpg">Manchester United</option>
+              <option value="Newcastle United" data-image="images/team.jpg">Newcastle United</option>
+              <option value="Norwich City" data-image="images/team.jpg">Norwich City</option>
+              <option value="Sheffield United" data-image="images/team.jpg">Sheffield United</option>
+              <option value="Southampton" data-image="images/team.jpg">Southampton</option>
+              <option value="Tottenham Hotspur" data-image="images/team.jpg">Tottenham Hotspur</option>
+              <option value="Watford" data-image="images/team.jpg">Watford</option>
+              <option value="West Ham United" data-image="images/team.jpg">West Ham United</option>
+              <option value="Wolverhampton Wanderers" data-image="images/team.jpg">Wolverhampton Wanderers</option>
+
+            </select>
+          </div>
+        </div>
+
+
+        <!-- Carousel for Team 2 -->
+        <div class="carousel-container">
+          <div id="carousel2" class="carousel">
+            <div class="carousel-inner">
+              <img id="carousel2Image" src="images/team.jpg" alt="Team Image">
+              <div id="carousel2Caption" class="carousel-caption">
+                <h3>Team 2</h3>
+                <p>Select a team to view</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown for Team 2 -->
+          <div class="dropdown">
+            <select id="team2Dropdown" onchange="updateCarouselImage('team2Dropdown', 'carousel2Image', 'carousel2Caption')">
+              <option value="Arsenal" data-image="images/team.jpg">Arsenal</option>
+              <option value="Aston Villa" data-image="images/team.jpg">Aston Villa</option>
+              <option value="Bournemouth" data-image="images/team.jpg">Bournemouth</option>
+              <option value="Brighton & Hove Albion" data-image="images/team.jpg">Brighton & Hove Albion</option>
+              <option value="Burnley" data-image="images/team.jpg">Burnley</option>
+              <option value="Chelsea" data-image="images/team.jpg">Chelsea</option>
+              <option value="Crystal Palace" data-image="images/team.jpg">Crystal Palace</option>
+              <option value="Everton" data-image="images/team.jpg">Everton</option>
+              <option value="Leicester City" data-image="images/team.jpg">Leicester City</option>
+              <option value="Liverpool" data-image="images/team.jpg">Liverpool</option>
+              <option value="Manchester City" data-image="images/team.jpg">Manchester City</option>
+              <option value="Manchester United" data-image="images/team.jpg">Manchester United</option>
+              <option value="Newcastle United" data-image="images/team.jpg">Newcastle United</option>
+              <option value="Norwich City" data-image="images/team.jpg">Norwich City</option>
+              <option value="Sheffield United" data-image="images/team.jpg">Sheffield United</option>
+              <option value="Southampton" data-image="images/team.jpg">Southampton</option>
+              <option value="Tottenham Hotspur" data-image="images/team.jpg">Tottenham Hotspur</option>
+              <option value="Watford" data-image="images/team.jpg">Watford</option>
+              <option value="West Ham United" data-image="images/team.jpg">West Ham United</option>
+              <option value="Wolverhampton Wanderers" data-image="images/team.jpg">Wolverhampton Wanderers</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirm Button -->
+      <button onclick="navigateToResult()" class="predictBtn">Confirm</button>
+      <div id="loadingIndicator" style="display:none;">Loading data...</div>
+
+    </div>
+  </div>
+</body>
+</html>

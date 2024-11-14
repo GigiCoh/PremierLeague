@@ -1,0 +1,206 @@
+/* General styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Use min-height to allow scrolling */
+  overflow-x: hidden; /* Restrict horizontal overflow */
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh; /* Allow vertical scroll if content overflows */
+  position: relative;
+  padding-bottom: 20px; /* Add padding at the bottom to avoid button overlap */
+}
+
+.flexbox1{
+  font-weight: bold;
+  font-size: 20px;
+  width: 55%;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.vsBox{
+  margin: auto;
+  width: 5%;
+  font-size: 80px;
+
+}
+
+#demo,#demo1{
+  width: 50%;
+}
+
+#carouselBtn{
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.carousel-inner img{
+  border-radius: 10%;
+  height:50%;
+  width: 50%;
+}
+
+.flexbox{
+  display: flex;
+}
+
+.predictBtn{
+  margin-top: 100px;
+}
+
+.animated-background {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 80%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  animation: gradient-animation 10s infinite;
+}
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background: #6a11cb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2575fc;
+}
+
+
+
+#graphContainer {
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff;
+  color: #333;
+  border-radius: 8px;
+  text-align: center;
+}
+
+
+/* CSS for Scrollable Table */
+/* Container styling */
+.table-container {
+  margin-bottom: 20px; /* Space between table and chart */
+}
+
+/* Wrapper around the table to make it scrollable */
+.table-wrapper {
+  max-height: 300px; /* Set max height for scrollable area */
+  overflow-y: auto;
+  border: 1px solid #ddd; /* Optional: adds a border around the scrollable area */
+  margin-bottom: 50px;
+}
+
+/* Style for table headers */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #939393; /* Background for sticky header */
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #939393;
+}
+
+table tbody td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+
+
+.fbox{
+  display: flex;
+}
+
+#historyBd{
+  padding-top: 800px;
+}
+
+.dropdown1{
+  margin-bottom: 25px;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flexbox {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flexbox1 {
+    font-size: 0.9em;
+  }
+
+  .vsBox {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+
+  button {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+  
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.2em;
+  }
+
+  .carousel-caption h3, .carousel-caption p {
+    font-size: 0.9em;
+  }
+
+  .flexbox1 {
+    display: none;
+    }
+
+  .vsBox {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+
+  button {
+    width: 50%;
+  }
+}
+

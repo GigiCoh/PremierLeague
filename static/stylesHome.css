@@ -1,0 +1,140 @@
+/* General styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #f4f4f9;
+  width: 100%;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.animated-background {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: gradient-animation 10s infinite;
+}
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  
+  font-size: 2rem;
+  color: #3d153d;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.homeImg {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background: #6a11cb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2575fc;
+}
+
+/* Scrollable Table Styles */
+.table-container {
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  margin-bottom: 50px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #939393;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #939393;
+}
+
+table tbody td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+
+  .image-container {
+    width: 90%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 0.8em;
+    padding: 6px 12px;
+  }
+
+  .image-container {
+    width: 100%;
+    max-width: 200px;
+  }
+}

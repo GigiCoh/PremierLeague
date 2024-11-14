@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Match Prediction - Historical Scores</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body class="animated-background" id="historyBd" onload="displayHistoricalData()">
+  <h2>Prediction Outcome</h2>
+
+  <div class="flexLR">
+    <div id="team1Table" class="table-container">
+      <h3 id="team1Title"></h3>
+      <div class="fbox">
+        <div class="table-wrapper">
+          <table id="team1Data">
+            <thead>
+              <tr>
+                <th>Match Date</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rows will be dynamically added here -->
+            </tbody>
+          </table>
+        </div>
+        <canvas id="team1Chart"></canvas>
+      </div>
+    </div>
+  
+    <div id="team2Table" class="table-container">
+      <h3 id="team2Title">Team 2 - Historical Scores</h3>
+      <div class="fbox">
+        <div class="table-wrapper">
+          <table id="team2Data">
+            <thead>
+              <tr>
+                <th>Match Date</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rows will be dynamically added here -->
+            </tbody>
+          </table>
+        </div>
+        <canvas id="team2Chart"></canvas>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="table-container">
+    <h3 id="team2Title">Predicted Outcome for Next Matches</h3>
+    
+    <div  style=" justify-content: space-between; width: 100%; align-items: center; text-align: center;">
+      <div id="team1Prediction" style="text-align: center; margin-top: 10px;"></div>
+      <div id="team2Prediction" style="text-align: center; margin-top: 10px;"></div>
+    </div>
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <div id="winnerDetails" style=" background-color: rgba(227, 242, 96, 0.511); width: 100%; margin: 5px; padding: 30px;  border-radius: 10px; font-size: 15px; font-weight: bold;"></div>
+      <div id="loserDetails" style=" background-color: rgba(211, 211, 211, 0.511); width: 100%; padding: 30px;margin: 5px; border-radius: 10px; font-size: 15px; font-weight: bold;"></div>
+    </div>
+  
+  </div>
+ 
+  <button onclick="navigateToPage()" class="predictBtn">Back to Home</button>
+
+
+</body>
+</html>
+
+<style>
+/* General styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.animated-background {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  animation: gradient-animation 10s infinite;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h3 {
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Scrollable Table and Fixed Header */
+.table-container {
+  color: #333;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-wrapper {
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+
+table tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Canvas Responsiveness */
+#team1Chart, #team2Chart {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.fbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flexLR {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+}
+
+@media (min-width: 768px) {
+  .fbox {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .flexLR {
+    flex-direction: row;
+  }
+}
+
+/* Responsive Button */
+.predictBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background: #6a11cb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.predictBtn:hover {
+  background: #2575fc;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background: #6a11cb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2575fc;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  h3 {
+    font-size: 1em;
+  }
+
+  .table-container {
+    max-width: 100%;
+  }
+
+  #team1Chart, #team2Chart {
+    max-width: 100%;
+    margin: 10px auto;
+  }
+
+  .flexLR, .fbox {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  h3 {
+    font-size: 0.9em;
+  }
+
+  table thead th, table tbody td {
+    padding: 8px;
+    font-size: 0.85em;
+  }
+
+  .predictBtn {
+    width: 90%;
+  }
+
+  .table-wrapper {
+    max-height: 200px;
+  }
+
+  #team1Chart, #team2Chart {
+    width: 100%;
+    max-width: 300px;
+    height: 110%;
+  }
+}
+
+</style>
+
